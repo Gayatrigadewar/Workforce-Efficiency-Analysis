@@ -1,132 +1,149 @@
 # Workforce-Efficiency-Analysis
 
-Project Summary
-Business Case & Goal:
-The goal of this project is to predict the performance rating of employees based on various features in the dataset. This analysis will help in identifying key factors affecting performance, department-wise performance, and building a model for hiring decisions. Additionally, recommendations for improving employee performance will be provided based on insights from the analysis.
+PROJECT SUMMARY:
+BUISNESSCASE & GOAL OF PROJECT: BASED ON GIVEN FEATURE OF DATASET WE NEED TO PREDICT THE PERFOMANCE RATING OF EMPLOYEE
+The Data science project which is given here is an analysis of employee performance
 
-Dataset Overview:
-Size: 1200 rows, 28 columns
-Features:
-Quantitative: 19 (11 numeric, 8 ordinal)
-Qualitative: 8
-Irrelevant Feature: EmpNumber (alphanumeric)
-Project Goals:
-Department-wise performance analysis
-Identifying the top 3 important factors affecting employee performance
-Building a model to predict employee performance
-Providing recommendations to improve employee performance
-Data Analysis
-Feature Description:
-The dataset includes categorical, numerical, and ordinal features.
+The Goal and Insights of the project are as follows:
+Department wise performances
+Top 3 Important Factors effecting employee performance
+A trained model which can predict the employee performance based on factors as inputs. This will be used to hire employees Recommendations to improve the employee performance based on insights from analysis The given Employee dataset consist of 1200 rows. The features present in the data are 28 columns. The shape of the dataset is 1200x28. The 28 features are classified into quantitative and qualitative where 19 features are quantitative (11 columns consists numeric data & 8 columns consists ordinal data) and 8 features are qualitative. EmpNumber consist alphanumerical data (distinct values) which doesn't play a role as a relevant feature for performance rating.
 
-Categorical Features:
-EmpNumber
-Gender
-EducationBackground
-MaritalStatus
-EmpDepartment
-EmpJobRole
-BusinessTravelFrequency
-OverTime
-Attrition
-Numerical Features:
-Age
-DistanceFromHome
-EmpHourlyRate
-NumCompaniesWorked
-EmpLastSalaryHikePercent
-TotalWorkExperienceInYears
-TrainingTimesLastYear
-ExperienceYearsAtThisCompany
-ExperienceYearsInCurrentRole
-YearsSinceLastPromotion
-YearsWithCurrManager
-Ordinal Features:
-EmpEducationLevel
-EmpEnvironmentSatisfaction
-EmpJobInvolvement
-EmpJobLevel
-EmpJobSatisfaction
-EmpRelationshipSatisfaction
-EmpWorkLifeBalance
-PerformanceRating
-Analysis Types:
-Univariate, Bivariate & Multivariate Analysis:
-Univariate Analysis: Examines the distribution of individual features.
-Bivariate Analysis: Studies the relationship between features and the target variable.
-Multivariate Analysis: Analyzes the relationship between multiple features concerning the target variable.
-Key Insights:
-Positive correlation with performance rating: EmpEnvironmentSatisfaction, EmpLastSalaryHikePercent, EmpWorkLifeBalance.
-Exploratory Data Analysis
-Distribution and Statistical Measures:
-Analyzed distributions for features like age, number of companies worked, hourly rate, and work experience.
-Checked skewness and kurtosis of features.
-Found skewness in features like YearsSinceLastPromotion.
-Data Pre-Processing:
-Missing Values: None
-Categorical Data Conversion:
-Manual Encoding: Mapping labels based on frequency.
-Frequency Encoding: Transforming categorical data into numerical values based on frequency distribution.
-Outlier Handling: Using IQR for non-normally distributed features.
-Feature Transformation: Applied square root transformation to handle skewness.
-Scaling Data: Standard scaling (mean = 0, standard deviation = 1).
-Feature Selection:
-Dropped unique and constant features.
-Checked correlations using a heatmap.
-Found no highly correlated features.
-Applied PCA, reducing dimensions to 25 features.
-Machine Learning Model Creation & Evaluation
-Defining Features: Identified dependent and independent features.
-Balancing Data: Used SMOTE to address class imbalance.
-Splitting Data: 80% for training, 20% for testing.
-Algorithms Used:
+From Correlation we can get the important aspects of the data, Correlation between features and Performance Rating.Correlation is a statistical measure that expresses the extent to which two variables are linearly related.The analysis of the project has gone through the stage of Univariate,Bivariate & Multivariate analysis, correlation analysis and analysis by each department to satisfy the project goal.
+
+The dataset consists of Categorical data and Numerical data. The Target variable consist of ordinal data, so this is a classification problem.The multiple machine learning model used in this project is Support vector classifier, Random forest classifier & Artifical neural network[Multilayer percepton]. from above all models Artifical neural network[Multilayer percepton] predicts higher accuracy 95.80%.
+
+One of the important goal of this project is to find the important feature affecting the performance rating. The important features were predicted using the machine learning model feature importance technique. The main technique used in the preprocessing data using the Mannual & Frequency encoding method to convert the string - categorical data into numerical data, because, Most of machine learning methods are based on numerical methods where strings are not supportive. The overall project was performed and achieved the goals by using the machine learning model and visualization techniques.
+
+1. Analysis
+Data were analyzed by describing the features present in the data. the features play the bigger part in the analysis. The features tell the relation between the dependent and independent variables. Pandas also help to describe the datasets answering following questions early in our project. The data present in the dataset are divided into numerical and categorical data.
+
+Categorical Features EmpNumber Gender EducationBackground MaritalStatus EmpDepartment EmpJobRole BusinessTravelFrequency OverTime Attrition
+
+Numerical Features Age DistanceFromHome EmpHourlyRate NumCompaniesWorked EmpLastSalaryHikePercent TotalWorkExperienceInYears TrainingTimesLastYear ExperienceYearsAtThisCompany ExperienceYearsInCurrentRole YearsSinceLastPromotion YearsWithCurrManager
+
+Ordinal Features EmpEducationLevel EmpEnvironmentSatisfaction EmpJobInvolvement EmpJobLevel EmpJobSatisfaction EmpRelationshipSatisfaction EmpWorkLifeBalance PerformanceRating
+
+2.Univariate, Bivariate & Multivariate Analysis
+Library Used: Matplotlib & Seaborn
+Plots Used: Histplot, Lineplot, CountPlot, Barplot
+Tip: All Observation or insights written below the plots
+Univariate Analysis: In univariate analysis we get the unique labels of categorical features, as well as get the range & density of numbers
+
+Bivariate Analysis: In bivariate analysis we check the feature relationship with target veriable.
+
+Multivariate Analysis: In multivariate Analysis check the relationship between two veriable with respect to the target veriable.
+
+CONCLUSION There are some features are positively correlated with performance rating( Target variable) [Emp Environment Satisfaction,Emp Last Salary Hike Percent,Emp Work Life Balance]
+
+3.Explotary Data Analysis
+Basic Check & Statistical Measures* Their is no constant column is present in Numerical as well as categoriacl data.
+
+Distribution of Continuous Features:
+In general, one of the first few steps in exploring the data would be to have a rough idea of how the features are distributed with one another. To do so, we shall invoke the familiar distplot function from the Seaborn plotting library. The distribution has been done by both numerical features. it will show the overall idea about the density and majority of data present in a different level.
+
+The age distribution is starting from 18 to 60 where the most of the employees are laying between 30 to 40 age count Employees are worked in the multiple companies up to 8 companies where most of the employees worked up to 2 companies before getting to work here. The hourly rate range is 65 to 95 for majority employees work in this company. In General, Most of Employees work up to 5 years in this company. Most of the employees get 11% to 15% of salary hike in this company.
+
+Check Skewness and Kurtosis of Numerical Features
+Checking weather the data is Normally distributed or Not with Skewness and Kurtosis**
+YearsSinceLastPromotion, This column is skewed
+skewness for YearsSinceLastPromotion: 1.9724620367914252
+kurtosis for YearsSinceLastPromotion: 3.5193552691799805
+Distribution of Mean of Data
+Distribution of mean close to guassian distribution with mean value 9.5
+we can say that around 80% feature mean lies between 8.5 to 10.5
+Distribution of Standard Deviation of Data
+Distribution of standard deviation of data also look like guassian distribution around 30% of feature standard deviation around the range of 3 3 to 20 and remaining 70% feature standard deviation in between 0 to 2
+4.Data Pre-Processing
+Check Missing Value: Their is no missing value in data
+
+Categorical Data Conversion: Handel categorical data with the help of frequency and mannual encoding, because feature is contain lot's of labels
+
+Mannual Encoding: Mannual encoding is a best techinque to handel categorical feature with the help of map function, map the labels based on frequency.
+
+Frequency Encoding: Frequency encoding is an encoding technique to transform an original categorical variable to a numerical variable by considering the frequency distribution of the data getting value counts.
+
+Outlier Handling Some features are contain outliers so we are impute this outlier with the help of IQR because in all features data is not normally distributed
+
+Feature Transformation: In YearsSinceLastPromotion some skewed & kurtosis is present, so we are use Square Root Transformation techinque
+
+Square root transformation: Square root transformation is one of the many types of standard transformations.This transformation is used for count data (data that follow a Poisson distribution) or small whole numbers. Each data point is replaced by its square root. Negative data is converted to positive by adding a constant, and then transformed.
+Q-Q Plot: Q–Q plot is a probability plot, a graphical method for comparing two probability distributions by plotting their quantiles against each other.
+Scaling The Data: scaling the data with the help of Standard scalar
+Standard Scaling: Standardization is the process of scaling the feature, it assumes the feature follow normal distribution and scale the feature between mean and standard deviation, here mean is 0 and standard deviation is always 1.
+5.Feature Selection
+Drop unique and constant feature: Dropping employee number because this is a constant column as well as drop Years Since Last Promotion because we create a new feaure using square root transformation
+
+Checking Correlation: Checking correlation with the help of heat map, and get the their is no highly correlated feature is present.
+
+Heatmap: A heatmap is a graphical representation of data that uses a system of color-coding to represent different values.
+
+Check Duplicates: In this data Their is no dupicates is present.
+
+PCA: Use pca to reduce the dimension of data, Data is contain total 27 feature after dropping unique and constant column,from PCA it shows the 25 feature has less varaince loss, so we are going to select 25 feature.
+
+Principal component analysis (PCA) is a popular technique for analyzing large datasets containing a high number of dimensions/features per observation, increasing the interpretability of data while preserving the maximum amount of information, and enabling the visualization of multidimensional data. Formally, PCA is a statistical technique for reducing the dimensionality of a dataset.
+
+Saving Pre-Process Data: save the all preprocess data in new file and add target feature to it.
+6.Machine learning Model Creation & Evaluation
+Define Dependant and Independant Features:
+
+Balancing the data: The data is imbalance, so we need to balance the data with the help of SMOTE
+
+SMOTE: SMOTE (synthetic minority oversampling technique) is one of the most commonly used oversampling methods to solve the imbalance problem. It aims to balance class distribution by randomly increasing minority class examples by replicating them. SMOTE synthesises new minority instances between existing minority instances. 3.Splitting Training And Testing Data: 80% data use for training & 20% data used for testing
+
+Algorithm:
+AIM: Create a sweet spot model (Low bias, Low variance)
+HERE WE WILL BE EXPERIMENTING WITH THREE ALGORITHM
+
 Support Vector Machine
 Random Forest
-Artificial Neural Network (MLP Classifier)
-Model Performance:
-Support Vector Classifier: Training accuracy: 96.61%, Test accuracy: 94.66% (overfit after hyperparameter tuning)
-Random Forest: Training accuracy: 100%, Test accuracy: 95.61% (decreased after hyperparameter tuning)
-Artificial Neural Network (MLP): Training accuracy: 98.95%, Test accuracy: 95.80%
-Final Model:
-Selected the Artificial Neural Network (MLP Classifier) for its balanced performance.
+Artificial Neural Network [MLP Classifier]
+Support vector machine well perform on training data with accuracy 96.61% but the test score is 94.66 after applying Hyperparameter tunning score is 98.28 means model is overfit.
+Random forest very well perform in training data with 100% accuracy but in testing 95.61% after doing hyperparameter tunning testing score is decreases.
+Artifical neural network[Multilayer percepton] perform very well on training data with 98.95% accuracy and testing score is 95.80%. So we are select Artifical neuranl network [Multilayer percepton] model.
+8.Saving Model
+Save model with the helpof pickle file
 
-Saving Model:
-Model saved using pickle.
-
-Tools and Libraries:
+Tools and Library Used:
 Tools:
 Jupyter
-Libraries:
-Pandas
-Numpy
-Matplotlib
-Seaborn
-pylab
-Scipy
-Sklearn
-Pickle
-Goal 1: Department-Wise Performance Analysis
-Insights:
-Sales: Level 3 performers dominate; males slightly outperform females.
-Human Resources: Level 3 is the majority; older employees perform lower, females perform well.
-Development: Predominantly level 3 performers; gender performance is similar.
-Data Science: Highest level 3 performance; fewer level 2 performers, males do better.
-Research & Development: Age doesn’t affect performance levels; females perform well.
-Finance: Performance decreases with age; males perform better; experience inversely related to performance.
-Goal 2: Top 3 Important Factors Affecting Employee Performance
-Employment Environment Satisfaction: Most employees at levels 3 and 4.
-Employee Salary Hike Percentage: High performance linked to salary hikes between 11-19% and 20-22%.
-Employee Work Life Balance: Level 3 shows the highest performance rating.
-Goal 3: A Trained Model to Predict Employee Performance
-Model Accuracy:
-Support Vector Classifier: 98.28%
-Random Forest Classifier: 95.61%
-Artificial Neural Network (MLP): 95.80%
-Goal 4: Recommendations to Improve Employee Performance
-Focus on improving employee environment satisfaction.
-Implement regular salary hikes to boost performance.
-Promote employees every 6 months.
-Enhance work-life balance.
-Prefer female candidates for HR roles.
-Leverage the higher performance in development and sales departments.
-Pay attention to employees with low/medium job satisfaction and relationship satisfaction as they often show excellent performance.
+
+Library Used:
+Pandas Numpy Matplotlib Seaborn pylab Scipy Sklearn Pickle
+
+Goal 1: Department Wise Performances
+PLOT USED
+
+Violinplot: It shows the distribution of quantitative data across several levels of one (or more) categorical variables such that those distributions can be compared.
+CountPlot: countplot is used to Show the counts of observations in each categorical bin using bars. Sales: The Performace rating level 3 is more in the sales department. The male performance rating the little bit higher compared to female.
+Human Resources: The majority of the employees lying under the level 3 performance . The older people are performing low in this department. The female employees in HR department doing really well in their performance.
+
+Development: The maximum number of employees are level 3 performers. Employees of all age are performing at the level of 3 only. The gender-based performance is nearly same for both.
+
+Data Science: The highest average of level 3 performance is in data science department. Data science is the only department where less number of level 2 performers. The overall performance is higher compared to all departments. Male employees are doing good in this department.
+
+Research & Development: The age factor is not deviating from the level of performance here where different employees with different age are there in every level of performance. The R&D has the good female employees in their performance.
+
+Finance: The finance department performance is exponentially decreasing when age increases. The male employees are doing good. The experience factor is inversely relating to the performance level.
+
+Goal 2: Top 3 Important Factors effecting employee performance
+The top three important features affecting the performance rating are ordered with their importance level as follows,
+
+Employment Environment Satisfaction
+Employee Salary Hike Percentage
+Experience Years In CurrentRole
+Employee Enviroment satisfaction: Maximum Number of Employees Performance Rating belongs to EmpEnvironmentSatisfaction Level 3 & Level 4, It contains 367 & 361.
+
+Employee last salary hike percent: More Number of Employees whose salary hike percentage belongs to 11-19 % are getting 2 & 3 performance rating Maximum time. as well asEmployees whose salary hike percentage is in between 20-22%, There performance rating is 4.
+
+Employee work life balance: In EmpWorkLifeBalance, level 3 is showing high Performance Rating of employees
+
+Goal 3: A Trained model which can predict the employee performance
+The trained model is created using the machine learning algorithm as follows with the accuracy score
+
+Support Vector Classifier: 98.28% accuracy
+Random Forest classifier: 95.61% accuracy
+Artifical Neural Network [Multilayer percepton]: 95.80%
+Goal 4: Recommendations to improve the employee performance
+The overall employee performance can be achieved by employee environment satisfaction. The company needs to focus more on the employee environment satisfaction. The salary hike will give the boost to the employees to perform well. Promote the employee ervery 6th month Improve Employee's work-life balance this affects the performance rating. While recruiting for HR, consider the female candidates where they perform well compared to male. The development and sales department is having an overall higher performance comparing to rest of the departments. While some of the employees who gives feedback like Low & Medium from Job Satisfaction & Relationship Satisfaction feature, such employees gives Excellent performance more in number. So company should focus on them.
